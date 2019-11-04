@@ -1,15 +1,12 @@
 #include "cabin.h"
 
-#define DDR_LED_FRONT         DDRB
-#define PORT_LED_FRONT        PORTB
-#define BIT_LED_FRONT         PB3
+#define DDR_LED_FRONT DDRB
+#define PORT_LED_FRONT PORTB
+#define BIT_LED_FRONT PB3
 
-#define DDR_LED_BUILDING      DDRB
-#define PORT_LED_BUILDING     PORTB
-#define BIT_LED_BUILDING      PB4
-
-
-
+#define DDR_LED_BUILDING DDRB
+#define PORT_LED_BUILDING PORTB
+#define BIT_LED_BUILDING PB4
 
 /*******************************************************************************
  * initializes the I/Os
@@ -21,13 +18,12 @@
  ******************************************************************************/
 void cabin_init()
 {
-    DDR_LED_FRONT  |= (1<<BIT_LED_FRONT);
-    PORT_LED_FRONT |= (1<<BIT_LED_FRONT);
+	DDR_LED_FRONT |= (1 << BIT_LED_FRONT);
+	PORT_LED_FRONT |= (1 << BIT_LED_FRONT);
 
-    DDR_LED_BUILDING  |= (1<<BIT_LED_BUILDING);
-    PORT_LED_BUILDING |= (1<<BIT_LED_BUILDING);
+	DDR_LED_BUILDING |= (1 << BIT_LED_BUILDING);
+	PORT_LED_BUILDING |= (1 << BIT_LED_BUILDING);
 }
-
 
 /*******************************************************************************
  * turns the led in the front on/off
@@ -40,16 +36,11 @@ void cabin_init()
  ******************************************************************************/
 void cabin_light_front(uint8_t on)
 {
-    if( on == 1)
-    {
-        PORT_LED_FRONT |= (1<<BIT_LED_FRONT);
-    }
-    else
-    {
-        PORT_LED_FRONT &= ~(1<<BIT_LED_FRONT);
-    }
+	if (on)
+		PORT_LED_FRONT |= (1 << BIT_LED_FRONT);
+	else
+		PORT_LED_FRONT &= ~(1 << BIT_LED_FRONT);
 }
-
 
 /*******************************************************************************
  * turns the led in the building on/off
@@ -62,12 +53,8 @@ void cabin_light_front(uint8_t on)
  ******************************************************************************/
 void cabin_light_building(uint8_t on)
 {
-    if( on == 1)
-    {
-        PORT_LED_BUILDING |= (1<<BIT_LED_BUILDING);
-    }
-    else
-    {
-        PORT_LED_BUILDING &= ~(1<<BIT_LED_BUILDING);
-    }
+	if (on)
+		PORT_LED_BUILDING |= (1 << BIT_LED_BUILDING);
+	else
+		PORT_LED_BUILDING &= ~(1 << BIT_LED_BUILDING);
 }

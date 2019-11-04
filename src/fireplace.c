@@ -1,12 +1,9 @@
 
 #include <avr/io.h>
 
-
-
- #define DDR_FIREPLACE  DDRB
- #define PORT_FIREPLACE PORTB
- #define PIN_FIREPLACE  PB2
-
+#define DDR_FIREPLACE DDRB
+#define PORT_FIREPLACE PORTB
+#define PIN_FIREPLACE PB2
 
 /*******************************************************************************
  * initializes the I/Os
@@ -18,10 +15,9 @@
  ******************************************************************************/
 void fireplace_init()
 {
-    DDR_FIREPLACE   |= (1<<PIN_FIREPLACE);
-    PORT_FIREPLACE  &= ~(1<<PIN_FIREPLACE);
+	DDR_FIREPLACE |= (1 << PIN_FIREPLACE);
+	PORT_FIREPLACE &= ~(1 << PIN_FIREPLACE);
 }
-
 
 /*******************************************************************************
  * simulates the burning fire and returns its current power
@@ -37,9 +33,9 @@ void fireplace_init()
  ******************************************************************************/
 uint8_t fireplace_burn()
 {
-    static uint8_t power = 0;
+	static uint8_t power = 0;
 
-    power += 90;
+	power += 90;
 
-    return power;
+	return power;
 }
